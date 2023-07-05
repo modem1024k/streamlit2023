@@ -1,5 +1,3 @@
-
-import streamlit_echarts
 import streamlit.components.v1 as components        #将要展示的 弄成html
 import streamlit as st
 
