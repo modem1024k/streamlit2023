@@ -1,12 +1,7 @@
 
 import streamlit_echarts
-from pyecharts.charts import Line
-from pyecharts import options as opts
 import streamlit.components.v1 as components        #将要展示的 弄成html
 import streamlit as st
-import pandas as pd
-
-
 
 
 # 读取包含 Java 的 HTML 文件
