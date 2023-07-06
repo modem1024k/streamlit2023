@@ -1,6 +1,7 @@
 import streamlit.components.v1 as components        #将要展示的 弄成html
 import streamlit as st
 
+st.set_page_config(page_title="My App", page_icon=":smiley:", layout="wide")
 
 # 读取包含 Java 的 HTML 文件
 with open("my_new_驾驶舱.html", "r",encoding="utf-8") as f:
