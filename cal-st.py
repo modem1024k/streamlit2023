@@ -2,8 +2,8 @@ import streamlit as st
 import numpy as np
 import math
 
-def cal_rate(money,month,month2,rate):  #money:贷款总额，month:还款月数，month2:爬坡期，rate:利息总额
-    
+def cal_rate(money1,month,month2,rate,money2):  #money:贷款总额，month:还款月数，month2:爬坡期，rate:利息总额
+    money=money1-money2
     for r in range(20000,300000):
         x=0.0000001*r
         b=(money*x*month2+(money * x * month * (1 + x) ** month) / ((1 + x) ** month - 1) - money-rate)
@@ -13,17 +13,6 @@ def cal_rate(money,month,month2,rate):  #money:贷款总额，month:还款月数
         
     return x*12
 
-def add(a, b):
-    return a + b
-
-def subtract(a, b):
-    return a - b
-
-def multiply(a, b):
-    return a * b
-
-def divide(a, b):
-    return a / b
 
 # Main function
 def main():
@@ -32,13 +21,14 @@ def main():
     num2 = st.number_input("还款期数:",value=30)
     num3 = st.number_input("爬坡期:",value=6)
     num4 = st.number_input("利息总额:",value=200000)
+    num5 = st.number_input("砍头",value=0)
     #st.write("贷款利率:",cal_rate(num1,num2,num3,num4))
 
     operation = st.selectbox("Select operation:", ("计算", "放弃"))
 #
     if st.button("Calculate"):
         if operation == "计算":
-            result = cal_rate(num1,num2,num3,num4)
+            result = cal_rate(num1,num2,num3,num4,num5)
     #    elif operation == "Subtraction":
     #        result = subtract(num1, num2)
     #    elif operation == "Multiplication":
