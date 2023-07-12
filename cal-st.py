@@ -4,7 +4,7 @@ import math
 
 def cal_rate(money,month,month2,rate):  #money:贷款总额，month:还款月数，month2:爬坡期，rate:利息总额
     
-    for r in range(50000,300000):
+    for r in range(20000,300000):
         x=0.0000001*r
         b=(money*x*month2+(money * x * month * (1 + x) ** month) / ((1 + x) ** month - 1) - money-rate)
         if abs(b)<2:
