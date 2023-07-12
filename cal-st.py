@@ -28,7 +28,7 @@ def divide(a, b):
 # Main function
 def main():
     st.title("IRR计算器")
-    num1 = st.number_input("贷款本金:",value=1000000)
+    num1 = st.number_input("贷款本金:",value=1000000,disabled=True)
     num2 = st.number_input("还款期数:",value=30)
     num3 = st.number_input("爬坡期:",value=6)
     num4 = st.number_input("利息总额:",value=200000)
