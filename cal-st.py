@@ -18,7 +18,8 @@ def cal_rate(money1,month,month2,rate,money2):  #money:贷款总额，month:还�
 def cal_rate2(money1,month,month2,rate,money2):  #money:贷款总额，month:还款月数，month2:爬坡期，rate:利息总额
     r1=50000
     r2=300000
-    while True:
+    i=0
+    while i<150000:
         r=(r1+r2)/2
         x=0.0000001*r
         money=money1-money2
@@ -30,6 +31,7 @@ def cal_rate2(money1,month,month2,rate,money2):  #money:贷款总额，month:还
             r2=r
         else:
             r1=r
+        i=i+1    
     #print(x*12,b)        
     return x*12
 
