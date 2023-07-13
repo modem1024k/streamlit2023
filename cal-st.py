@@ -32,7 +32,9 @@ def cal_rate2(money1,month,month2,rate,money2):  #money:贷款总额，month:还
         else:
             r1=r
         i=i+1    
-    #print(x*12,b)        
+    #print(x*12,b) 
+    if i>=150000:
+        x=0
     return x*12
 
 # Main function
