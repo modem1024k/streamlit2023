@@ -41,9 +41,9 @@ def cal_rate2(money1,month,month2,rate,money2):  #money:贷款总额，month:还
 def main():
     st.title("IRR计算器")
     num1 = st.number_input("贷款本金:",value=1000000,disabled=True)
-    num2 = st.number_input("还款期数:",value=30)
-    num3 = st.number_input("爬坡期:",value=6)
-    num4 = st.number_input("利息总额:",value=200000,step=10000)
+    num2 = st.number_input("还款期数:",value=12)
+    num3 = st.number_input("爬坡期:",value=0)
+    num4 = st.number_input("利息总额:",value=30000,step=10000)
     num5 =st.number_input("砍头金额", value=0)
     #st.write("贷款利率:",cal_rate(num1,num2,num3,num4))
 
