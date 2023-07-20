@@ -6,6 +6,12 @@ st.set_page_config(page_title="My App", page_icon=":smiley:", layout="wide")
 # 读取包含 Java 的 HTML 文件
 with open("my_new_驾驶舱.html", "r",encoding="utf-8") as f:
     page_html = f.read()
+# 在HTML中加入样式调整宽度    
+page_html = f"""
+<div style="width:50vw;">
+{page_html}
+</div>
+"""
 
 # 将 HTML 页面作为组件显示在 Streamlit 上
 #st.components.v1.html(page_html, width=700, height=500, scrolling=True)
