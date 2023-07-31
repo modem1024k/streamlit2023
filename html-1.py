@@ -15,7 +15,7 @@ page_html = f"""
 
 # 将 HTML 页面作为组件显示在 Streamlit 上
 #st.components.v1.html(page_html, width=700, height=500, scrolling=True)
-components .html(page_html, width=2400, height=3500, scrolling=True)
+components .html(page_html, width=2400, height=5500, scrolling=True)
 #text=""
 #with open("my_new_驾驶舱.html",encoding="utf-8",width=00, height=7200, scrolling=True) as fp: #如果遇到decode错误，就加上合适的encoding
     #text=fp.read()
