@@ -3,7 +3,7 @@ import streamlit as st
 import xlrd
 
 st.set_page_config(page_title="My App", page_icon=":smiley:", layout="wide")
-rq = st.text_input('查询日期',"202307")
+rq = st.text_input('查询日期  金额(万元)',"202307")
 
 file = pd.ExcelFile("data"+rq+".xlsx")
 print('表名',file.sheet_names)
