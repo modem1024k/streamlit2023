@@ -5,7 +5,7 @@ from io import BytesIO
 pd.options.display.float_format = '{:.2f}'.format  #设置两位小数
 
 def main():
-    st.title("Excel File Uploader")
+    st.title("银票发票配对")
 
     uploaded_file1 = st.file_uploader("银票文件", type=["xlsx", "xls"])
 
@@ -84,7 +84,7 @@ def main():
             excel_writer.save()
             output.seek(0)
         
-            st.download_button(label="Download Excel", data=output, file_name='dataframe.xlsx', mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+            st.download_button(label="Download Excel", data=output, file_name='bankdata.xlsx', mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
 
 
                     
