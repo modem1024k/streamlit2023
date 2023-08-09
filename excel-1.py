@@ -19,5 +19,6 @@ if st.button(' 业 务 查  询'):
     with col2:
         for sheet in file.sheet_names:
             df = file.parse(sheet)  #表名
+            df.set_index(df.columns[0], inplace=True)
             st.write(df,width=500, height=500, scrolling=True)
 
