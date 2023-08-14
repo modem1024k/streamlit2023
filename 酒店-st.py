@@ -128,11 +128,12 @@ def main():
                     df1=pd.DataFrame(row1,columns=['项目名称','项目金额'])
                     st.write(df1)
 
-                    with col3:
-                        for i in range(50):
-                            st.write('    ')
+                    with col1:
+                        
                         st.write('还款保障倍数',round(round(cash*0.94,20)/payment,4))
-                        #pass                
+                        #pass
+                    with col3:
+                        pass
     
     
     
