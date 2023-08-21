@@ -404,8 +404,8 @@ if __name__ == "__main__":
     pages = ["IRR计算器", "酒店贷测算器", "银票贴现EAST","贷前中登发票查重","供应链驾驶舱","统计报表展示"]
     
     # 显示页面列表
-    for page in pages:
-        st.sidebar.write(page)
+    #for page in pages:
+    #    st.sidebar.write(page)
     
     # 选择要查看的页面
     page = st.sidebar.selectbox("Choose a page", pages)
