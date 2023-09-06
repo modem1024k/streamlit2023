@@ -55,7 +55,7 @@ def pinyin_sort(list):
 
 # Main function
 def main():
-    st.set_page_config(page_title="My App", page_icon=":smiley:", layout="wide")
+    #st.set_page_config(page_title="My App", page_icon=":smiley:", layout="wide")
     st.title("酒店贷测算表")
     col1, col2 ,col3 = st.columns([30,30,30])
 
@@ -154,6 +154,7 @@ def main():
         
 
 if __name__ == "__main__":
+    st.set_page_config(page_title="My App", page_icon=":smiley:", layout="wide")
     st.write("DB username:", st.secrets["db_username"])
     st.write("DB password:", st.secrets["db_password"])
     st.write("My cool secrets:", st.secrets["my_cool_secrets"]["things_i_like"])
