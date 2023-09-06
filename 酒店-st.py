@@ -151,19 +151,52 @@ def main():
     #        result = divide(num1, num2)
     #
         #st.success(f"IRR: {str(round(result*100,3))+'%'}")
+def login(user,pw):
+    st.title("登录")
+    
+    username = st.text_input("用户名")
+    password = st.text_input("密码",type='password')
+    
+    if st.button("登录"):
+        if username == user and password == pw:
+            st.session_state["authenticated"] = True
+            #st.success("登录成功")
+            home()
+        else:
+            st.error("用户名或密码错误")
+            
+# 主页面        
+def home():
+    st.title("主页")
+    
+    if not st.session_state["authenticated"]:
+        st.error("请先登录")
+    else:
+        #st.write("登录成功,欢迎访问主页!")
+        main()
         
 
 if __name__ == "__main__":
     st.set_page_config(page_title="My App", page_icon=":smiley:", layout="wide")
-    st.write("DB username:", st.secrets["db_username"])
-    st.write("DB password:", st.secrets["db_password"])
-    st.write("My cool secrets:", st.secrets["my_cool_secrets"]["things_i_like"])
+    #st.write("DB username:", st.secrets["db_username"])
+    #st.write("DB password:", st.secrets["db_password"])
+    #st.write("My cool secrets:", st.secrets["my_cool_secrets"]["things_i_like"])
 
-# And the root-level secrets are also accessible as environment variables:
-    st.write(
-        "Has environment variables been set:",
-        os.environ["db_username"] == st.secrets["db_username"],
-        )
+    # And the root-level secrets are also accessible as environment variables:
+    #st.write(
+    #    "Has environment variables been set:",
+    #    os.environ["db_username"] == st.secrets["db_username"],
+    #    )
     #cal_rate2(1000000,54,6,500000,0)
-    main()
+    #main()
     #cal_rate2(1000000,54,6,10)
+    user = st.secrets["db_username"]
+    pw = st.secrets["db_password"]
+    if "authenticated" not in st.session_state:
+        st.session_state["authenticated"] = False
+    
+    if not st.session_state["authenticated"]:
+        login(user,pw)
+    else:
+        home()
+     
