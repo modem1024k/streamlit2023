@@ -153,6 +153,15 @@ def main():
         
 
 if __name__ == "__main__":
+    st.write("DB username:", st.secrets["db_username"])
+    st.write("DB password:", st.secrets["db_password"])
+    st.write("My cool secrets:", st.secrets["my_cool_secrets"]["things_i_like"])
+
+# And the root-level secrets are also accessible as environment variables:
+    st.write(
+        "Has environment variables been set:",
+        os.environ["db_username"] == st.secrets["db_username"],
+        )
     #cal_rate2(1000000,54,6,500000,0)
     main()
     #cal_rate2(1000000,54,6,10)
