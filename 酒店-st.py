@@ -2,6 +2,7 @@ import streamlit as st
 import numpy as np
 import math
 import pandas as pd
+import os
 
 def cal_rate(money1,month,month2,rate,money2):  #money:贷款总额，month:还款月数，month2:爬坡期，rate:利息总额
     
