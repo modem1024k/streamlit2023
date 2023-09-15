@@ -263,7 +263,7 @@ def html_driver():
 def html_report():
     rq = st.text_input('查询日期  贷款情况(万元)',"202307")
     
-    file = pd.ExcelFile("data"+rq+".xlsx")
+    file = pd.ExcelFile(".\\excel\\data"+rq+".xlsx")
     print('表名',file.sheet_names)
     
     col1, col2 = st.columns([1,99])
@@ -427,7 +427,7 @@ def gyl_today():
 
     rq = st.text_input('查询供应链最新余额',yesterday)
     
-    file = pd.ExcelFile("供应链汇总"+rq+".xlsx")
+    file = pd.ExcelFile(".\\excel\\供应链汇总"+rq+".xlsx")
     print('表名',file.sheet_names)
     
     col1, col2 = st.columns([1,99])
