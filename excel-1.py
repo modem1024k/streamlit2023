@@ -5,7 +5,7 @@ import xlrd
 st.set_page_config(page_title="My App", page_icon=":smiley:", layout="wide")
 rq = st.text_input('查询日期  贷款情况(万元)',"202307")
 
-file = pd.ExcelFile("data"+rq+".xlsx")
+file = pd.ExcelFile(".\\excel\\data"+rq+".xlsx")
 print('表名',file.sheet_names)
 
 col1, col2 = st.columns([1,99])
