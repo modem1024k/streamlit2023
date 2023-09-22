@@ -2,6 +2,7 @@
 1、2023-9-18 中登-修改表头[凭证编号]
 2、增加用户登录
 3、9-21增加aggrid
+4、9-22增加供应链下载
 '''
 
 import streamlit as st
@@ -458,6 +459,14 @@ def gyl_today():
                 #df.set_index(df.columns[0], inplace=True)
                 AgGrid(df,theme='blue', height=400,width=400)
                 #st.write(df,width=500, height=500, scrolling=True)
+                output = BytesIO()
+                excel_writer = pd.ExcelWriter(output, engine='openpyxl')
+                df.to_excel(excel_writer, sheet_name='Sheet1', index=False)
+                excel_writer.save()
+                output.seek(0)
+            
+                st.download_button(label="Download Excel", data=output, file_name='供应链余额'+time.strftime("%Y%m%d", time.localtime())+'.xlsx', mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+ 
 
     #if st.button('查询(不含个人经营贷)'):
     #    #result = c.execute(sql)
