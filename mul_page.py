@@ -269,7 +269,7 @@ def html_driver():
 
 #统计报表展示
 def html_report():
-    rq = st.text_input('查询日期  贷款情况(万元)',"202307")
+    rq = st.text_input('查询日期  贷款情况(万元)',"202309")
     
     file = pd.ExcelFile(".//excel//data"+rq+".xlsx")
     print('表名',file.sheet_names)
