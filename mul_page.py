@@ -603,7 +603,7 @@ def gylrb():
                 gylbill=pd.read_excel(n,sheet_name=0,skiprows=3)
                 #dfs.append(data)
                 #st.write(gylbill)
-                product=pd.read_excel('.\\excel\\产品-对应.xlsx',sheet_name=0)
+                product=pd.read_excel('.//excel//产品-对应.xlsx',sheet_name=0)
                 #st.write(product)
 
                 gyltz1=taizh(gylbill,product)
@@ -619,7 +619,7 @@ def gylrb():
                 group_sum=gyltz1.groupby(['备注'])['金额'].sum().rename('汇总金额').reset_index()
                 group_sum['日期'] = yesterday
 
-                sum_yesday=pd.read_excel('.\\excel\\汇总.xlsx',sheet_name=0)
+                sum_yesday=pd.read_excel('.//excel//汇总.xlsx',sheet_name=0)
                 with col3:
                     st.write(sum_yesday)
                 if st.button('生成汇总'):
@@ -629,8 +629,8 @@ def gylrb():
                     result2 = result2.round(2)
                     #result2['汇总金额']=result2['汇总金额'].astype('float')
         
-                    result2.to_excel('.\\excel\\供应链汇总'+yesterday+'.xlsx',index=False)
-                    result2.to_excel('.\\excel\\汇总.xlsx',index=False)
+                    result2.to_excel('.//excel//供应链汇总'+yesterday+'.xlsx',index=False)
+                    result2.to_excel('.//excel//汇总.xlsx',index=False)
                     with col1:
                         st.write(result2)
 
