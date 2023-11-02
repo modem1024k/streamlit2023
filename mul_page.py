@@ -336,7 +336,7 @@ def html_driver():
 
 #统计报表展示
 def html_report():
-    rq = st.text_input('查询日期  贷款情况(万元)',"202309")
+    rq = st.text_input('查询日期  贷款情况(万元)',"202310")
     
     file = pd.ExcelFile(".//excel//data"+rq+".xlsx")
     print('表名',file.sheet_names)
@@ -359,7 +359,7 @@ def html_report():
 
 #统计报表展示
 def ph_report():
-    rq = st.text_input('查询日期  普惠情况(万元)',"202309")
+    rq = st.text_input('查询日期  普惠情况(万元)',"202310")
     
     file = pd.ExcelFile(".//excel//普惠"+rq+".xlsx")
     print('表名',file.sheet_names)
