@@ -680,15 +680,24 @@ def main():
         #st.write("This is page 5")
 
 def login(user,pw):
-    st.title("登录")
+    container.title("登录")
+    container = st.empty()     #登陆后清除登录界面
+    container1 = st.empty()
+    container2 = st.empty()
+    container3 = st.empty()
     
-    username = st.text_input("用户名")
-    password = st.text_input("密码",type='password')
+    username = container1.text_input("用户名")
+    password = container2.text_input("密码",type='password')
     
-    if st.button("登录"):
+    if container3.button("登录"):
         if username == user and password == pw:
             st.session_state["authenticated"] = True
             #st.success("登录成功")
+            container.write("")
+            container1.write("")
+            container2.write("")
+            container3.write("")
+            
             home()
         else:
             st.error("用户名或密码错误")
