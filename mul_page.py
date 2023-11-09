@@ -680,11 +680,13 @@ def main():
         #st.write("This is page 5")
 
 def login(user,pw):
-    container.title("登录")
+    
     container = st.empty()     #登陆后清除登录界面
     container1 = st.empty()
     container2 = st.empty()
     container3 = st.empty()
+
+    container.title("登录")
     
     username = container1.text_input("用户名")
     password = container2.text_input("密码",type='password')
