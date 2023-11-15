@@ -644,7 +644,9 @@ def gylrb():
 
 def fpyz():
     if st.button('发票验证(仅限行内机器使用)'):
-        #components.html('<script> window.location.href = "http://10.130.134.79:8505" </script>',width=1200,height=5500, scrolling=True)
+        #components.html('<script> window.location.href = "http://10.130.134.79:8505" </script>',
+        # width=1200,height=5500, scrolling=True)
+        
         webbrowser.open_new_tab('http://10.130.134.79:8505')
 
 
