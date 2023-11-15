@@ -19,6 +19,7 @@ import re
 import datetime
 from st_aggrid import AgGrid
 import numpy as np
+import webbrowser
 
 #供应链日报处理
 def pd_merge(df_1,df_2,*args):
@@ -643,7 +644,8 @@ def gylrb():
 
 def fpyz():
     if st.button('发票验证(仅限行内机器使用)'):
-        components.html('<script> window.location.href = "http://10.130.134.79:8505" </script>',width=1200,height=5500, scrolling=True)
+        #components.html('<script> window.location.href = "http://10.130.134.79:8505" </script>',width=1200,height=5500, scrolling=True)
+        webbrowser.open_new_tab('http://10.130.134.79:8505')
 
 
 
@@ -653,7 +655,7 @@ def main():
     
     # 创建页面列表
     pages = ["IRR计算器", "酒店贷测算器", "银票贴现EAST","贷前中登发票查重","供应链驾驶舱",
-             "供应链最新余额","普惠报表展示","统计报表展示"]
+             "供应链最新余额","普惠报表展示","发票验证","统计报表展示"]
     
     # 显示页面列表
     #for page in pages:
@@ -677,8 +679,8 @@ def main():
         gyl_today()
     elif page =="普惠报表展示":
         ph_report()
-    #elif page == "发票验证":
-    #    fpyz()        
+    elif page == "发票验证":
+        fpyz()        
     else:
         html_report()
         #st.write("This is page 5")
