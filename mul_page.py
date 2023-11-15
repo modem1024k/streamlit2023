@@ -647,7 +647,7 @@ def fpyz():
         #components.html('<script> window.location.href = "http://10.130.134.79:8505" </script>',
         # width=1200,height=5500, scrolling=True)
         
-       st.markdown("<a href='http://10.130.134.79:8505'>My website</a>",unsafe_allow_html=True)
+       st.markdown("<a href='http://10.130.134.79:8505'>发票查验 仅限行内</a>",unsafe_allow_html=True)
 
 
 
