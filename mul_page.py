@@ -647,8 +647,7 @@ def fpyz():
         #components.html('<script> window.location.href = "http://10.130.134.79:8505" </script>',
         # width=1200,height=5500, scrolling=True)
         
-        #webbrowser.open_new_tab('http://10.130.134.79:8505')
-        st.link("http://10.130.134.79:8505", "My website")
+       st.markdown("<a href='http://10.130.134.79:8505'>My website</a>",unsafe_allow_html=True)
 
 
 
