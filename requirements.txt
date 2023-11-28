@@ -4,4 +4,5 @@ pandas==1.1.5
 xlrd==1.2.0
 openpyxl==3.0.9
 streamlit-aggrid==0.2.2.post2
+streamlit-timeline==0.0.2
 
