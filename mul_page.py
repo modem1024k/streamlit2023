@@ -5,6 +5,7 @@
 4、9-22增加供应链下载
 5、10-10增加普惠报表
 6、10-19增加日报处理
+7、增加提款日计息
 '''
 
 import streamlit as st
@@ -22,6 +23,7 @@ import numpy as np
 import webbrowser
 #from datetime import datetime
 from dateutil.relativedelta import relativedelta
+from streamlit_timeline import timeline
 
 #供应链日报处理
 def pd_merge(df_1,df_2,*args):
@@ -118,10 +120,10 @@ def IRR():
 
 
 #酒店测算
-def cal_hotel(money,month,month2,rate1,rate_count):  #money:贷款总额，month:还款月数，month2:爬坡期，rate:利息总额
-    rate=(rate1/100)/12
+def cal_hotel(money,month,month2,rate1,rate_count):  #money:贷款总额，month:还款月数，month2:爬坡期，rate:利率,计息日
+    rate=(rate1/100)/12                               #月利率
     print('利率',rate)
-    b=money * rate *  (1 + rate) ** month / ((1 + rate) ** month - 1)
+    b=money * rate *  (1 + rate) ** month / ((1 + rate) ** month - 1)  #等额本息
     #payment = principal * monthly_rate * (1 + monthly_rate)**term / ((1 + monthly_rate)**term - 1)
 
     print('每月',b)
@@ -156,10 +158,10 @@ def hotel():
         #st.write(int(date_str.split('/')[2]))
         new_date = selected_date + relativedelta(months=1)
         
-        new_date=new_date.replace(day=9)
-        rate_day=new_date-selected_date
+        new_date=new_date.replace(day=9)      #还款日每月9号
+        rate_day=new_date-selected_date       #计算首期计息天数
         
-        rate_count=rate_day.days
+        rate_count=rate_day.days              #获取天数
         st.write('首期计息天数',rate_count,'天')
 
         num1 = st.number_input("贷款本金:",value=5000000)
@@ -669,6 +671,13 @@ def fpyz():
        st.markdown("<a href='http://10.130.134.79:8505'>发票查验 仅限行内</a>",unsafe_allow_html=True)
 
 
+def hotel_time():  #酒店进度
+    with open('hotel.json', "r",encoding='utf-8') as f:
+        data = f.read()
+
+    # render timeline
+    timeline(data, height=600)   
+
 
 def main():
     # 创建侧边栏
@@ -676,7 +685,7 @@ def main():
     
     # 创建页面列表
     pages = ["IRR计算器", "酒店贷测算器", "银票贴现EAST","贷前中登发票查重","供应链驾驶舱",
-             "供应链最新余额","普惠报表展示","发票验证","统计报表展示"]
+             "供应链最新余额","普惠报表展示","发票验证","酒店贷进度","统计报表展示"]
     
     # 显示页面列表
     #for page in pages:
@@ -701,10 +710,16 @@ def main():
     elif page =="普惠报表展示":
         ph_report()
     elif page == "发票验证":
-        fpyz()        
+        fpyz()
+    elif page == "酒店贷进度":
+        hotel_time()     
+
     else:
         html_report()
         #st.write("This is page 5")
+
+
+     
 
 def login(user,pw):
     
