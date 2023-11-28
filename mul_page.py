@@ -20,6 +20,8 @@ import datetime
 from st_aggrid import AgGrid
 import numpy as np
 import webbrowser
+from datetime import datetime
+from dateutil.relativedelta import relativedelta
 
 #供应链日报处理
 def pd_merge(df_1,df_2,*args):
@@ -116,7 +118,7 @@ def IRR():
 
 
 #酒店测算
-def cal_hotel(money,month,month2,rate1):  #money:贷款总额，month:还款月数，month2:爬坡期，rate:利息总额
+def cal_hotel(money,month,month2,rate1,rate_count):  #money:贷款总额，month:还款月数，month2:爬坡期，rate:利息总额
     rate=(rate1/100)/12
     print('利率',rate)
     b=money * rate *  (1 + rate) ** month / ((1 + rate) ** month - 1)
@@ -129,7 +131,10 @@ def cal_hotel(money,month,month2,rate1):  #money:贷款总额，month:还款月�
     #row.append(header)
     for i in range(month+month2):
         if i < month2:
-            row.append(['第'+str(i+1)+'期',round(b1,2)])
+            if i== 0:
+                row.append(['第'+str(i+1)+'期',round(rate_count*b1/30,2)])
+            else :    
+                row.append(['第'+str(i+1)+'期',round(b1,2)])
         else:    
             row.append(['第'+str(i+1)+'期',round(b,2)])
     
@@ -144,12 +149,25 @@ def hotel():
     col1, col2 ,col3 = st.columns([30,30,30])
 
     with col1:
+
+        selected_date = st.date_input("提款日")
+        st.write("提款日:", selected_date)
+        #date_str = selected_date.strftime('%Y/%m/%d')
+        #st.write(int(date_str.split('/')[2]))
+        new_date = selected_date + relativedelta(months=1)
+        
+        new_date=new_date.replace(day=9)
+        rate_day=new_date-selected_date
+        
+        rate_count=rate_day.days
+        st.write('首期计息天数',rate_count,'天')
+
         num1 = st.number_input("贷款本金:",value=5000000)
         num2 = st.number_input("还本金期数:",value=54,)
         num3 = st.number_input("爬坡期:",value=6)
         num4 = st.number_input("年利率:",value=10.00,step=0.01)
         num5 =st.number_input("砍头金额", value=0)
-        num0 = st.number_input("店长工资:",value=35000)
+        
         #st.write("贷款利率:",cal_rate(num1,num2,num3,num4))
     
         operation = st.selectbox("Select operation:", ("计算", "放弃"))
@@ -166,12 +184,13 @@ def hotel():
         num10 = st.number_input("OTA费用占比:",value=0.23)
         num11 = st.number_input("品牌方管理费:",value=0.06)
         num12 = st.number_input("品牌方系统费:",value=0.035,format="%.3f")
+        num0 = st.number_input("店长工资:",value=35000)
 
 
     with col1:
         if st.button("开始测算"):
             if operation == "计算":
-                result,payment = cal_hotel(num1,num2,num3,num4)
+                result,payment = cal_hotel(num1,num2,num3,num4,rate_count)
                 st.write(result)
                 
                 with col2:
