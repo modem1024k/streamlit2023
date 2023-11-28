@@ -186,11 +186,15 @@ def cal_hotel(money,month,month2,rate1,rate_count,tk_day):  #money:贷款总额�
             #计算最后一期本金
             else:
                 last_b=calculate_equal(money,rate1,month)
+                print('最后一期本金',last_b)
                 new_date0=tk_day + relativedelta(months=i-1)  
                 new_date0 = new_date0.replace(day=9)
                 new_date1 = tk_day + relativedelta(months=i)
                 in_day=(new_date1-new_date0).days
-                row.append(['第'+str(i+1)+'期',round(last_b+in_day*b1/30,2)])
+                print('最后间隔日',in_day)
+                row.append(['第'+str(i+1)+'期',round(b*(1+in_day*rate/30),2)])
+                #row.append(['第'+str(i+1)+'期',round(b,2)])
+
 
     
 
