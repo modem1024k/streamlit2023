@@ -1,0 +1,96 @@
+
+{
+    "title": {
+        "media": {
+          "url": "https://i.hd-r.cn/76af76d22f18a2ba33bf581d806a9236.jpg",
+          "caption": " <br><font  color='red' size='7'> 华瑞银行瑞E惠</font>",
+          "credit": ""
+        },
+        "text": {
+          "headline": "瑞E惠酒店贷<br>项目进度",
+          "text": "<br><p><span style='font-size: 25px;'>华瑞银行供应链金融酒店<br><br>加盟贷发展历程</span></p>"
+        }
+    },
+    "events": [
+      {
+        "media": {
+          "url": "https://i.hd-r.cn/2add25c82e6342cc2711807526f28a8a.jpg",
+          "caption": ""
+        },
+        "start_date": {
+          "year": "2023",
+          "month":"8",
+          "day":"15",
+          "format":"2023-08-15"
+        },
+        "text": {
+          "headline": "<br>亚朵集团<br>华瑞银行金融业务合作",
+          "text": "<br><span style='font-size: 25px;'>签署亚朵酒店集团加盟商<br><br>快贷业务合作协议</span>"
+        }
+      },
+      {
+        "media": {
+          "url": "https://i.hd-r.cn/84bce0a2c88faaaf89c85d695b394f12.jpg",
+          "caption": ""
+        },
+        "start_date": {
+          "year": "2023",
+          "month":"9",
+          "day":"13",
+          "format":"2023-09-13"
+        },
+        "text": {
+          "headline": "<br>亚朵酒店贷获得批复",
+          "text": "<br><span style='font-size: 30px;'>亚朵酒店贷合作额度2.5亿</span>"
+        }
+      },
+      {
+        "media": {
+          "url": "https://i.hd-r.cn/1c591b742b2adbdd6a7189b80d036568.jpg",
+          "caption": ""
+        },
+        "start_date": {
+          "year": "2023",
+          "month":"10",
+          "day":"12",
+          "format":"2023-10-12"
+        },
+        "text": {
+          "headline": "<br>华住-华瑞酒店贷合作",
+          "text": "<br><span style='font-size: 30px;'>完成华住集团尽调<br><br>签署合作协议</span>"
+        }
+      },
+     {
+        "media": {
+          "url": "https://i.hd-r.cn/9f9f8e1fefc73420f5fb2fda4c313a42.jpg",
+          "caption": ""
+        },
+        "start_date": {
+          "year": "2023",
+          "month":"11",
+           "day":"12",
+           "format":"2023-11-12"
+        },
+        "text": {
+          "headline": "<br>华住-华瑞酒店贷合作",
+          "text": "<br><span style='font-size: 30px;'>华住集团酒店贷合作额度2.5亿</span>"
+        }
+      },
+     {
+        "media": {
+          "url": "https://i.hd-r.cn/ae24c066c49c2d426696bc97a39c42ca.jpg",
+          "caption": "<br><font size='14'>亚朵-启东</font>"
+        },
+        "start_date": {
+          "year": "2023",
+          "month":"11",
+          "day":"22",
+          "format":"2023-11-22"
+        },
+        "text": {
+          "headline": "<br>亚朵-启东吉航尽调完成",
+          "text": "<br><span style='font-size: 30px;'>启东吉航合作额度400万</span>"
+        }
+      }
+    ]
+}
