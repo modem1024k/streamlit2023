@@ -6,6 +6,7 @@
 5、10-10增加普惠报表
 6、10-19增加日报处理
 7、增加提款日计息
+8、aggrid添加导出和透视
 '''
 
 import streamlit as st
@@ -648,12 +649,12 @@ def gyl_today():
                 df = file.parse(sheet)  #表名
 
                 #df.set_index(df.columns[0], inplace=True)
-                AgGrid(df,theme='blue', height=400,width=400)
+                AgGrid(df,theme='blue', height=400,width=400,enable_enterprise_modules=True)
                 table_piv = pd.pivot_table(df, values=['汇总金额'], index=['产品名称2'],
                     aggfunc={'汇总金额': np.sum})
                 table_piv.reset_index(inplace=True)
 
-                AgGrid(table_piv,theme='blue',width=100,height=200)   #透视表
+                AgGrid(table_piv,theme='blue',width=100,height=200,enable_enterprise_modules=True)   #透视表
 
 
                 
