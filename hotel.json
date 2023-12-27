@@ -91,6 +91,22 @@
           "headline": "<br>亚朵-启东吉航尽调完成",
           "text": "<br><span style='font-size: 30px;'>启东吉航合作额度400万</span>"
         }
+      },
+     {
+        "media": {
+          "url": "https://i.hd-r.cn/ad2f77534023a3e3194086db049f7d62.jpg",
+          "caption": ""
+        },
+        "start_date": {
+          "year": "2023",
+          "month":"12",
+           "day":"26",
+           "format":"2023-12-26"
+        },
+        "text": {
+          "headline": "<br>华住-操作手册",
+          "text": "<br><span style='font-size: 30px;'>华住酒店贷发布操作手册</span>"
+        }
       }
     ]
 }
