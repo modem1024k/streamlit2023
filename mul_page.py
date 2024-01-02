@@ -452,7 +452,7 @@ def html_report():
                 df = file.parse(sheet)  #表名
                 #df.set_index(df.columns[0], inplace=True)
                 #st.write(df,width=500, height=500, scrolling=True)
-                AgGrid(df,theme='blue', height=300,width=400) 
+                AgGrid(df,theme='blue', height=300,width=400,enable_enterprise_modules=True) 
 
 
 #统计报表展示
