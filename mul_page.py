@@ -474,8 +474,8 @@ def ph_report():
             for sheet in file.sheet_names:
                 df = file.parse(sheet)  #表名
                 #df.set_index(df.columns[0], inplace=True)
-                st.write(df,width=500, height=500, scrolling=True)
-                #AgGrid(df,theme='blue', height=300,width=400) 
+                #st.write(df,width=500, height=500, scrolling=True)
+                AgGrid(df,theme='blue', height=300,width=400,enable_enterprise_modules=True) 
 
 
 
