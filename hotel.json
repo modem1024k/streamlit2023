@@ -107,6 +107,22 @@
           "headline": "<br>华住-操作手册",
           "text": "<br><span style='font-size: 30px;'>华住酒店贷发布操作手册</span>"
         }
+      },
+     {
+        "media": {
+          "url": "https://i.hd-r.cn/a2014ce7436ed3058f6d490129a8f3f7.jpg",
+          "caption": "<br><font size='14'>亚朵-华住首笔放款</font>"
+        },
+        "start_date": {
+          "year": "2024",
+          "month":"02",
+          "day":"08",
+          "format":"2024-02-08"
+        },
+        "text": {
+          "headline": "<br>亚朵-华住首笔放款",
+          "text": "<br><span style='font-size: 30px;'>首次放款930万</span>"
+        }
       }
     ]
 }
