@@ -133,6 +133,7 @@ def calculate_equal(amount, annual_interest_rate, loan_term,sel_day):
 
     yhbj =0
     amount_list=[]
+    bj_list=[]
     # 打印表头
     print("{:<10} {:<10} {:<10} {:<10} {:<10} {:<10}".format("期数", "剩余本金", "利息", "当月本金","付息日","天数"))
     sy_amount=amount
@@ -154,22 +155,19 @@ def calculate_equal(amount, annual_interest_rate, loan_term,sel_day):
         last_day=(day2-day3).days
         month_day_rate=sy_amount*int_day*monthly_interest_rate/30
         last_rate=sy_amount*last_day*monthly_interest_rate/30
-        bj_mon=monthly_payment-month_day_rate
+        bj_mon=round(monthly_payment-month_day_rate,2)
         amount_list.append(sy_amount)
+        bj_list.append(bj_mon)
+
         print("{:<10} {:<10.2f} {:<10.2f} {:<10.2f} {} {:<10}".format(i, sy_amount, month_day_rate,bj_mon,day2,int_day))
         sy_amount=sy_amount-bj_mon
 
-
-
-
-    
     # 打印总还款金额和总利息
     print("\n总还款金额: {:.2f}".format(total_payment))
     print("总利息: {:.2f}".format(total_interest))
     last_amount=amount_list[-1]+last_rate
     print("最后一期天数,本金",last_day,amount_list[-1],day2,day3)
-    return last_amount
-
+    return last_amount,bj_list,amount_list[-1]
 
 #酒店测算
 def cal_hotel(money,month,month2,rate1,rate_count,tk_day):  #money:贷款总额，month:还款月数，month2:爬坡期，rate:利率,计息日
@@ -178,40 +176,44 @@ def cal_hotel(money,month,month2,rate1,rate_count,tk_day):  #money:贷款总额�
     b=money * rate *  (1 + rate) ** month / ((1 + rate) ** month - 1)  #等额本息
     #payment = principal * monthly_rate * (1 + monthly_rate)**term / ((1 + monthly_rate)**term - 1)
     #计算等额本息的最后一期本金
-   
+    last_b,amount_list,last_mon_bj=calculate_equal(money,rate1,month,tk_day)
+    
 
 
     print('每月',b)
     b1=money*rate
     row=[]
-    header=['期数','每月还款']
+    header=['期数','每月还款','当月本金']
     #row.append(header)
     for i in range(month+month2):
         if i < month2:
             if i== 0:
-                row.append(['第'+str(i+1)+'期',round(rate_count*b1/30,2)])
+                row.append(['第'+str(i+1)+'期',round(rate_count*b1/30,2),0])
             else :
-                new_date0=tk_day + relativedelta(months=i-1)  
+                new_date0=tk_day + relativedelta(months=i)  
                 new_date0 = new_date0.replace(day=9)
-                new_date1 = tk_day + relativedelta(months=i)
+                print('new_data0',new_date0)
+                new_date1 = tk_day + relativedelta(months=i+1)
                 new_date1 = new_date1.replace(day=9)
+                print('new_data1',new_date1)
                 in_day=(new_date1-new_date0).days
-                row.append(['第'+str(i+1)+'期',round(in_day*b1/30,2)])
+                print('in_day',i,in_day)
+                row.append(['第'+str(i+1)+'期',round(in_day*b1/30,2),0])
                 #row.append(['第'+str(i+1)+'期',round(b1,2)])
         else:    
             if i<month+month2-1:
-                row.append(['第'+str(i+1)+'期',round(b,2)])
+                row.append(['第'+str(i+1)+'期',round(b,2),amount_list[i-month2]])
 
             #计算最后一期本金
             else:
-                last_b=calculate_equal(money,rate1,month,tk_day)
+                #last_b,amount_list=calculate_equal(money,rate1,month,tk_day)
                 #print('最后一期本金',last_b)
                 new_date0=tk_day + relativedelta(months=i-1)  
                 new_date0 = new_date0.replace(day=9)
                 new_date1 = tk_day + relativedelta(months=i)
                 in_day=(new_date1-new_date0).days
                 #print('最后间隔日',in_day)
-                row.append(['第'+str(i+1)+'期',round(last_b,2)])
+                row.append(['第'+str(i+1)+'期',round(last_b,2),last_mon_bj])
                 #row.append(['第'+str(i+1)+'期',round(b,2)])
 
 
@@ -220,6 +222,8 @@ def cal_hotel(money,month,month2,rate1,rate_count,tk_day):  #money:贷款总额�
     df=pd.DataFrame(row,columns=header)  #生成新的Dataframe
     print(df)
     return df,b
+
+
 
 def hotel():
     #st.set_page_config(page_title="My App", page_icon=":smiley:", layout="wide")
