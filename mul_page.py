@@ -550,7 +550,7 @@ def zdfp():
                         if (len(item3)<=5):
                             pass
                         else :
-                            if item[2]!='上海华瑞银行股份有限公司':
+                            if item[2]!='银行股份有限公司':
                                 item_zd.append([item[0],item[1],item[2],item[3],item3.lstrip('0')]) #去掉发票号码开头的0
                             else:
                                 pass    
