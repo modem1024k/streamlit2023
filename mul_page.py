@@ -759,12 +759,12 @@ def fpyz():
        st.markdown("<a href='http://10.130.134.79:8505'>发票查验 仅限行内</a>",unsafe_allow_html=True)
 
 
-def hotel_time():  #酒店进度
-    with open('hotel.json', "r",encoding='utf-8') as f:
-        data = f.read()
+#def hotel_time():  #酒店进度
+    #with open('hotel.json', "r",encoding='utf-8') as f:
+    #    data = f.read()
 
     # render timeline
-    timeline(data, height=600)   
+    #timeline(data, height=600)   
 
 
 def main():
@@ -799,8 +799,8 @@ def main():
         ph_report()
     elif page == "发票验证":
         fpyz()
-    elif page == "酒店贷进度":
-        hotel_time()     
+    #elif page == "酒店贷进度":
+    #    hotel_time()     
 
     else:
         html_report()
