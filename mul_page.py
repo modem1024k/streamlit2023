@@ -265,7 +265,7 @@ def hotel():
         num9 = st.number_input("员工平均工资:",value=5000)
         num10 = st.number_input("OTA费用占比:",value=0.23)
         num11 = st.number_input("品牌方管理费:",value=0.06)
-        num12 = st.number_input("品牌方系统费:",value=0.035,format="%.3f")
+        num12 = st.number_input("品牌方系统费:",value=0.035*(1-num10),format="%.3f")
         num0 = st.number_input("店长工资:",value=35000)
 
 
@@ -296,10 +296,10 @@ def hotel():
                     row1.append(['通讯费',phone_fee,'固定5000'])
                     hotel_sys = num6*num7*num12*30
                     row1.append(['品牌方系统费',hotel_sys,'月收入*规定比例'])
-                    ota_fee = num6*num7*num10*0.05*30
+                    ota_fee = num6*num7*num10*0.15*30
                     row1.append(["OTA渠道费", ota_fee,'月收入*规定比例'])
-                    other_fee = num7*10*30
-                    row1.append(["其他费用", other_fee,'房间数*10*30'])
+                    #other_fee = num7*10*30
+                    #row1.append(["其他费用", other_fee,'房间数*10*30'])
                     cash = mon_sr
                     for item in row1:
                         if item[0] == row1[0][0]:
