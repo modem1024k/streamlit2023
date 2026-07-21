@@ -1,0 +1,9 @@
+numpy==2.2.1
+streamlit
+streamlit-echarts==0.4.0
+pandas==2.2.3
+xlrd==1.2.0
+openpyxl==3.0.9
+streamlit-aggrid==1.2.1.post2
+streamlit-timeline==0.0.2
+
