@@ -654,6 +654,7 @@ with tab2:
                 data=output.getvalue(),
                 file_name=f"贷款数据明细_{datetime.now().strftime('%Y%m%d_%H%M%S')}.xlsx",
                 mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                key="export_detail_btn1",
             )
 
 # ==================== Tab3：驾驶舱 ====================
