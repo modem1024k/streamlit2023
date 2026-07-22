@@ -114,7 +114,8 @@ if not st.session_state.authenticated:
             if verify_user(username, password):
                 st.session_state.authenticated = True
                 st.session_state.current_user = username
-                st.experimental_rerun()
+                #st.experimental_rerun()
+                st.rerun()
             else:
                 st.error("用户名或密码错误")
     st.stop()
